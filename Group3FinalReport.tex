@@ -1,0 +1,826 @@
+
+%% bare_conf.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[conference]{IEEEtran}
+% Some Computer Society conferences also require the compsoc mode option,
+% but others use the standard conference format.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[section]{placeins}
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Comparison of 4-bits\\ Unsigned Multipliers}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Wen Bo Zhang}
+\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
+McGill University}
+\and
+\IEEEauthorblockN{Simon Dang Khoa Ho}
+\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
+McGill University}
+\and
+\IEEEauthorblockN{Zixuan Yin}
+\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
+McGill University}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Two 4-bits unsigned multiplier are designed and implemented for comparison purposes. The array multiplier and the Booth encoding Radix-4 multiplier were designed and implemented in Electric. The criterion for evaluation included delay analysis, power comsumption and layout size of the implementations. IRSIM was the simulation software used for delay and power simulations and the Electric layout implementations were used for size comparison.
+\end{abstract}
+
+% no keywords
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+Hardware multiplication can be implemented in many different ways. Each of the different algorithms have its own advantages and draw back in term of the VLSI design. A way to compare the different kinds of multiplication algorithm is to implement them in layout using CAD tools such as Electric and then use simulation softwares to evaluate their performance. For simplicity's sake, two 4-bits unsigned multipliers are compared and evaluated in the scope of this project. The goal is to determine if the Radix-4 Booth multiplier has a sizeable advantage over the simple array multiplier.
+
+\subsection{Booth Algorithm}
+The idea is to reduce the number of partial products by half, by using the technique of radix 4 Booth recoding​. Instead of shifting and adding for every column of the multiplier term and multiplying by 1 or 0, we only take every second column, and multiply by ±1, ±2, or 0, to obtain the same results. ​\\
+
+\begin{tabular}{ l c r }
+Booth&\\
+PP0 = Multiplicand * -1, shifted left 0 bits (x-1)​\\
+PP1 = Multiplicand * 2, shifted left 2 bits (x 8)​\\
+\\
+Array&\\
+PP0 = Multiplicand * 1, shifted left 0 bits (x 1)​\\
+PP1 = Multiplicand * 1, shifted left 1 bits (x 2)​\\
+PP2 = Multiplicand * 1, shifted left 2 bits (x 4)​\\
+PP3 = Multiplicand * 0, shifted left 3 bits (x 0)\\
+\end{tabular}
+\\
+\\
+To Booth recode the multiplier term, we consider the bits in blocks of three, such that each block overlaps the previous block by one bit. 
+
+\subsection{Encoder Design}
+
+At the beginning of our design, a preliminary schematic of our multiplier was drawn based on the calculation example. The encoder cells for each partial product and selector cell are designed based on the Booth’s multiplication algorithm introduced in CMOS VLSI design [1]. The 8-bit binary adder are provided in standard cell library wordlib8. 
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{blocks}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Booth encoding grouping}
+\label{fig_sim}
+\end{figure}
+
+\begin{table}[!htb]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|c||c|}
+\hline
+Block & Partial Product\\
+\hline
+000 & 0\\
+\hline
+001 & 1 * Multiplicand\\
+\hline
+010 & 1 * Multiplicand\\
+\hline
+011 & 2 * Multiplicand\\
+\hline
+100 & -2 * Multiplicand\\
+\hline
+101 & -1 * Multiplicand\\
+\hline
+110 & -1 * Multiplicand\\
+\hline
+111 & 0\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2in]{example}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Calculation example}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2in]{HSchematic}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{High level schematic}
+\label{fig_sim}
+\end{figure}
+
+
+The encoder cells produce control signals SINGLE, DOUBLE and NEG to indicate the value of each partial product. Partial product PP2 is a special case that only have two possible value: 0 and Y. Therefore, the PP2 encoder and selector is implemented using AND gates in high-level schematic.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{PP0EncoderTruthTable}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{PP0 Encoder logic}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{PP0Encoderschematic}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{PP0 Encoder schematic}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{PP0Encoderlayout}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{PP0 Encoder layout}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{ELogic}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{PP1 Encoder logic}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{ESchematic}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{PP1 Encoder schematic}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{ELayout}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{PP1 Encoder layout}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{PP2EncoderTruthTable}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{PP2 Encoder logic}
+\label{fig_sim}
+\end{figure}
+
+\clearpage
+
+
+\subsection{Selector Design}
+
+The booth selector cell produce a 5-bit partial product based on control signals from encoder and 4-bit multiplicand Y.  The logical function of Booth selector is shown below.
+
+\[PP_i = XOR(y_i*SINGLE+y_{i-1}*DOUBLE, NEG)\]
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{SSch}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Booth selector schematic}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{SLay}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Booth selector layout}
+\label{fig_sim}
+\end{figure}
+
+
+\subsection{Sign extension and 2’s complement}
+In order to produce the correct answer, each partial product from previous stage needs to be shifted by certain amount and assigned with corresponding sign extension. The addition of 1 for negative partial products is implemented in the next partial product. The bitwise implementation for each partial product is shown in the table below. NEG0 and NEG1 correspond to the NEG control signal from Booth encoders.
+
+\begin{table}[!htb]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+bit-7 & bit-6 & bit-5 & bit-4 & bit-3 & bit-2 & bit-1 & bit-0 \\
+\hline
+NEG0 & NEG0 & NEG0 & PP0[4] & PP0[3] & PP0[2] & PP0[1] & PP0[0] \\
+\hline
+NEG1 & PP1[4] & PP1[3] & PP1[2] & PP1[1] & PP1[0] & 0 & NEG0 \\
+\hline
+PP2[3] & PP2[2] & PP2[1] & PP2[0] & 0 & NEG1 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Multiplier Schematic and layout}
+After implementing each fundamental cells, the high-level schematic and layout of Booth multiplier was put together. Power and ground wires are provided on both side of the circuit. All input and output exports are provided at the top of the layout. The cell passed NCC, ERC and DRC verifications in Eletric.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{BoothMultiplierschematic}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Booth multiplier schematic}
+\label{fig_sim}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{BMul}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Booth multiplier layout}
+\label{fig_sim}
+\end{figure}
+
+\subsection{Performance Evaluation}
+As a metric to compare the array and Booth multiplier, the power, area and delay of both implementation were analyzed. A stronger emphasis was given for timing measurement since we evaluated that the main drawback of an array multiplier is its long critical path, which has a stronger influence on the propagation delay difference. The testing simulations for power and delay were performed using IRSIM, a tool for simulating digital circuits. [2] “It is a "switch-level" simulator; that is, it treats transistors as ideal switches. Extracted capacitance and lumped resistance values are used to make the switch a little bit more realistic than the ideal, using the RC time constants to predict the relative timing of events.” In these simulations we have used Vdd= 5V and f=1MHz frequency operation. 
+
+\subsection{Area}
+For the area measurement, the Electric VLSI designs system software was used to count the number of transistors as well as to evaluate the width and height of the layouts. As observed in Table 1, the Booth multiplier has a lower number of transistors but covers a larger space area than the array multiplier. This can be explained by how the array multiplier is structured, which can be easily compacted and optimized in space since it's composed of the same building structure: carry save adders. For Booth multiplier, as seen in Figure 9, it is more difficult to use similar tricks because of the way the encoders and booth selectors are placed. For example, the partial product 0 encoder on the left significantly increase the design width and leaves a lot of unused white space below it. Power rails, which are absent in the array design, also increase the area. A smaller Booth implementation is definitely possible and is subject to further optimizations if given more time.
+
+\begin{table}[!htb]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|c|c|c|c|}
+\hline
+Parameter​ & Booth & Array & Diff(\%) \\
+\hline
+Number of transistors​ & 2542 & 3418 & +34.5​\% \\
+\hline
+Width(um)​ & 1029 & 656 & -44.27​\% \\
+\hline
+Height(um) & 1155 & 518.5 & -76.06​\% \\
+\hline
+Total area(mm)​ & 0.06781​ & 0.03401 & - 66.39\%​ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Timing}
+For the delay, a testbench with every 8 bit input combinations (256 inputs) was tested to verify the design functionality. The file “testbench.cmd” in the deliverable presents the script used for the multipliers and without any issues, the outputs were exactly the same. After the functionality has been ensured, the delay from 00000000 to every single input was measured. Figure 10 shows the inputs x0, x1, x2 ,x3, y0, y1, y2, y3 and outputs p0, p1, p2, p3, p4, p5, p6, p7 were displayed with the delay displayed at the top. The “multiplier.xml” excel file presents the data and IRSIM delays generated.  As predicted, booth delay is faster, with an average delay and worst case delay of 15.133 ns, 23.08 ns and 20.047 ns, 29.76 ns respectively for Booth and array. This represents a 25.28% performance increase. As revealed in the critical path evaluation for the last partial product, P7, the 8 bit adders in the array multiplier has 17 steps whereas Booth has 13. The numerous carry save adders in the array are costly in time with approximately 0.6 ns delay each and in contrast, the transition for sign0 to 1 takes 7.365 ns which accounts for 24% of the Booth time and thus, the main source of bottleneck.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=2.5in]{IRSim}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{IRSIM graphical analyzer}
+\label{fig_sim}
+\end{figure}
+
+\subsection{Power}
+An initial dynamic power estimation calculation was performed with Equation 1. An activity factor of 0.1 was used which is standard constant used for the fraction of the circuit that is switching, a supply voltage of 5V and clock frequency of 1 Mhz. The total nodal capacitance was found to be 33.61 pF and 28.87 pF for Booth and array respectively which gives a theoretical dynamic power of 0.0168 mW and 0.0144 mW. This is very close to the IRSIM power given at 0.0835 mW and 0.0297 mW, which considers transistors as ideal switches as mentioned earlier. As seen in Table 2, the Booth multiplier consumes much more power than array multiplier, 95.05% more than its counterpart. As observed in [3], the major sources of power dissipation in multipliers are spurious transitions and logic races that flow through the circuit. Thus, the glitches generated in the Booth multiplier makes this architecture more power consuming, which is captured with the IRSIM simulator. 
+
+\[P = \alpha C V^2 f\]
+
+\begin{table}[!htb]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|c|c|c|c|}
+\hline
+Parameter​ & Booth & Array & Diff(\%) \\
+\hline
+Nodal capacitance & 33.61 & 28.87pF & -15.17  \\
+\hline
+Dynamic power (theory)​ & 0.0168mW & 0.0144mW & -15.38 \\
+\hline
+Dynamic power (practical) & 0.0835mW & 0.0297mW & -95.05 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Test Simulation Analysis}
+The method of Booth recording reduces the numbers of adders and hence the delay required to produce the partial sums by examining three bits at a time. The high performance of booth multiplier comes with the drawback of power consumption. The reason for this is the large number of adder cells that consume power. ​ For the array multiplier, it gives better power consumption as well as optimum number of components required, but delay for this multiplier is larger. It also requires larger number of gates because of which area is also increased; due to this array multiplier is less economical . Thus, it is a fast multiplier but hardware complexity is high.​
+
+% Note that the IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a 
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% the IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively. 
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+\FloatBarrier
+\section{Conclusion}
+Comparison of the logic and electrical level estimates were done and support that the Booth radix-4 multiplier consumes more power and has less delay. If given more time, a sign extension corrector would have been added to our design to enhance the ability of the Booth multiplier to multiply not only the unsigned number but as well the signed number. Additionally, as originally planned in the project proposal, the three multipliers designs (Wallace and Dadda trees, and SFQ multiplier) would have been implemented to compare more implementations. 
+
+% conference papers do not normally have an appendix
+
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+N.~Weste and P.~D. Harris, \emph{CMOS VLSI design}, 1st ed. Boston: Pearson/Addison-Wesley, 2005.
+
+\bibitem{IEEEhowto:kopka}
+http://opencircuitdesign.com/irsim/
+
+\bibitem{IEEEhowto:kopka}
+T. ~Callaway and E. ~Swartzlander.  \emph{Optimizing multipliers for WSI}, In Fifth Annual IEEE International Conference on Wafer Scale Integration, pages 85-94, 1993.
+\end{thebibliography}
+
+
+% that's all folks
+\end{document}
+
+
